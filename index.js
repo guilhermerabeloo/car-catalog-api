@@ -1,13 +1,4 @@
-const express = require("express");
-const app = express();
-
-app.get("/", (req, res) => {
-  res.json({ message: "API funcionando na Vercel!" });
-});
-
-app.get("/ping", (req, res) => {
-  res.json({ message: "Pong!" });
-});
+import app from './src/app.js';
 
 // Porta definida automaticamente pela Vercel
 const PORT = process.env.PORT || 3000;
