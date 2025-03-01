@@ -1,4 +1,5 @@
 import express from "express";
+import carsCatalog from "./carsCatalog.js"
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
@@ -11,6 +12,7 @@ const routes = (app) => {
 
     app.use(
         express.json(),
+        carsCatalog
     )
 }
 
