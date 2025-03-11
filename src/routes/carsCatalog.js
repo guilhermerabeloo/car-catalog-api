@@ -5,5 +5,6 @@ const router = express.Router();
 
 router
     .get('/catalogoCarros', CarCatalogController.getAllCars)
+    .post('/cadastroCarro', CarCatalogController.createCar);
 
 export default router;

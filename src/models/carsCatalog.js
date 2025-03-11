@@ -1,26 +1,27 @@
 import mongoose from "mongoose";
 
 const CarSchema = new mongoose.Schema({
-  model: { type: String, required: true },
-  make: { type: String, required: true },
-  year: { type: Number, required: true },
-  color: { type: String, required: true },
-  price: { type: Number, required: true },
-  mileage: { type: Number, required: true },
-  fuel_type: { type: String, required: true },
-  transmission: { type: String, required: true },
+  model: { type: String},
+  make: { type: String},
+  year: { type: Number},
+  color: { type: String},
+  price: { type: Number},
+  mileage: { type: Number},
+  fuel_type: { type: String},
+  transmission: { type: String},
+  image: { type: String},
   engine: {
-    engine_type: { type: String, required: true },
+    type: { type: String},
     horsepower: Number,
     torque: Number
   },
-  features: [String],
+  features: { type: String},
   location: {
     city: String,
     state: String,
     country: String
   },
-  status: { type: String, enum: ["Disponível", "Vendido"], required: true }
+  status: { type: String, enum: ["Disponível", "Vendido"]}
 });
 
 const Car = mongoose.model("Car", CarSchema, "cars");
