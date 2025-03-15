@@ -19,6 +19,21 @@ class CarCatalogController {
             res.status(400).json({ error: "Erro ao cadastrar o carro", detalhes: error.message });
         }
     };
+
+    static deleteCar = async (req, res) => {
+        try {
+            const { id } = req.params;
+            const deletedCar = await Car.findByIdAndDelete(id);
+
+            if (!deletedCar) {
+                return res.status(404).json({ error: "Carro não encontrado" });
+            }
+
+            res.json({ message: "Carro excluído com sucesso" });
+        } catch (error) {
+            res.status(500).json({ error: "Erro ao excluir o carro" });
+        }
+    };
 }
 
 export default CarCatalogController;
