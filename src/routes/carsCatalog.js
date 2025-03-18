@@ -7,5 +7,6 @@ router
     .get('/catalogoCarros', CarCatalogController.getAllCars)
     .post('/cadastroCarro', CarCatalogController.createCar)
     .delete('/excluirCarro/:id', CarCatalogController.deleteCar)
+    .put('/editarCarro/:id', CarCatalogController.updateCar)
 
 export default router;
