@@ -34,6 +34,27 @@ class CarCatalogController {
             res.status(500).json({ error: "Erro ao excluir o carro" });
         }
     };
+
+    static updateCar = async (req, res) => {
+        try {
+            const { id } = req.params;
+            if (!mongoose.Types.ObjectId.isValid(id)) {
+                return res.status(400).json({ error: "ID inválido" });
+            }
+
+            const updatedCar = await Car.findByIdAndUpdate(id, req.body, { new: true });
+
+
+            if (!updatedCar) {
+                return res.status(404).json({ error: "Carronode ser não encontrado" });
+            }
+
+            res.json(updatedCar);
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ error: "Erro ao atualizar o carro" });
+        }
+    };
 }
 
 export default CarCatalogController;
