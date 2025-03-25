@@ -55,6 +55,22 @@ class CarCatalogController {
             res.status(500).json({ error: "Erro ao atualizar o carro" });
         }
     };
+
+    static getCarDetail = async (req, res) => {
+        try {
+            const { id } = req.params;
+            if (!mongoose.Types.ObjectId.isValid(id)) {
+                return res.status(400).json({ error: "ID inválido" });
+            }
+            const car = await Car.findById(id);
+            if (!car) {
+                return res.status(404).json({ error: "Carro não encontrado" });
+            }
+            res.json(car);
+        } catch (error) {
+            res.status(500).json({ error: "Erro ao buscar o detalhamento do carro" });
+        }
+    };
 }
 
 export default CarCatalogController;
