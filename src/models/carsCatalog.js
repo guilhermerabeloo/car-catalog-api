@@ -21,7 +21,8 @@ const CarSchema = new mongoose.Schema({
     state: String,
     country: String
   },
-  status: { type: String, enum: ["Disponível", "Vendido"], required: true }
+  status: { type: String, enum: ["Disponível", "Vendido"], required: true },
+  image: { type: String } 
 });
 
 const Car = mongoose.model("Car", CarSchema, "cars");
