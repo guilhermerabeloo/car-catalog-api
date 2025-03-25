@@ -1,4 +1,5 @@
 import Car from "../models/carsCatalog.js";
+import mongoose from "mongoose";
 
 class CarCatalogController {
     static getAllCars = async (req, res) => {
